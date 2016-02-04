@@ -18,6 +18,6 @@ public class TestImageUp {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		String result = service.upFile(is, "最最", "jpg");
+		String result = service.uploadFile( "最最", "jpg",is);
 	}
 }

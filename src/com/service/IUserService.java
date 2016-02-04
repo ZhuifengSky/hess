@@ -6,5 +6,5 @@ import com.model.User;
 
 public interface IUserService {
 
-	public List<User> searchUsers();
+	public List<User> searchUsers(User queryBean);
 }

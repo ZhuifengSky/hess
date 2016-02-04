@@ -7,7 +7,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Date;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
 
 import com.service.IFileUpService;
 import com.util.DateUtil;
@@ -20,7 +20,7 @@ public class FileUpServiceImpl implements IFileUpService {
 	public static String path =EnvironmentUtil.getInstance().getPropertyValue("File.SavePath");;
 
 	@Override
-	public String upFile(InputStream stream, String filName, String suffix) {
+	public String uploadFile(String filName, String suffix,InputStream stream) {
 		String fileName = DateUtil.format(new Date(), DateUtil.DATE)
 				+ RandomStrUtil.getCharAndNumr(5);
 		String folderName = DateUtil.format(new Date(), DateUtil.DATE);
@@ -47,11 +47,11 @@ public class FileUpServiceImpl implements IFileUpService {
 				fs.flush();
 			}
 		} catch (FileNotFoundException e) {
-			logger.error("上传文件时文件未找到！");
+			/*logger.error("上传文件时文件未找到！");*/
 			e.printStackTrace();
 			return "file up error";
 		} catch (IOException e) {
-			logger.error("文件上传抛出IO异常！");
+			/*logger.error("文件上传抛出IO异常！");*/
 			e.printStackTrace();
 			return "file up error";
 		} finally {
@@ -59,12 +59,19 @@ public class FileUpServiceImpl implements IFileUpService {
 				fs.close();
 				stream.close();
 			} catch (IOException e) {
-				logger.error("关闭相关流时抛出IO异常！");
+				/*logger.error("关闭相关流时抛出IO异常！");*/
 				e.printStackTrace();
 			}
 		}
+		 return savePath;
+	}
 
-		return savePath;
+	@Override
+	public String downLoadFile(String fileName, String path) {
+		System.out.println("传递过来的参数"+fileName+"---"+path);
+		String msg = "此方法正在执行！";
+		System.out.println("测试测试额");
+		return msg;
 	}
 	
 

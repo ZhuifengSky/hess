@@ -9,12 +9,19 @@ import com.service.IUserService;
 public class UserServiceImpl implements IUserService {
 
 	@Override
-	public List<User> searchUsers() {
+	public List<User> searchUsers(User queryBean) {
 		List<User> users = new ArrayList<User>();
-		for (int i = 0; i < 5; i++) {
+		if (queryBean.getUserName().equals("admin")) {
+			for (int i = 0; i < 5; i++) {
+				User user = new User();
+				user.setUserName("用户"+i);
+				user.setAge(i);
+				users.add(user);
+			}
+		}else{
 			User user = new User();
-			user.setUserName("用户"+i);
-			user.setAge(i);
+			user.setAge(999);
+			user.setUserName("非法用户");
 			users.add(user);
 		}
 		return users;
