@@ -1,10 +1,10 @@
-package com.service.impl;
+package com.file.service.impl;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import com.model.User;
-import com.service.IUserService;
+import com.file.model.User;
+import com.file.service.IUserService;
 
 public class UserServiceImpl implements IUserService {
 

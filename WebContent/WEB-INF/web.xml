@@ -9,12 +9,12 @@
 		</servlet-class>
 		<init-param>
 			<param-name>service-class</param-name>
-			<param-value>com.service.impl.UserServiceImpl</param-value>
+			<param-value>com.file.service.impl.UserServiceImpl</param-value>
 		</init-param>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>userServiceServlet</servlet-name>
-		<url-pattern>/userServiceServlet</url-pattern>
+		<url-pattern>/user/userServiceServlet</url-pattern>
 	</servlet-mapping>
 	
 	<servlet>
@@ -23,12 +23,12 @@
 		</servlet-class>
 		<init-param>
 			<param-name>service-class</param-name>
-			<param-value>com.service.impl.FileUpServiceImpl</param-value>
+			<param-value>com.file.service.impl.FileUpServiceImpl</param-value>
 		</init-param>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>fileUpService</servlet-name>
-		<url-pattern>/fileUpService</url-pattern>
+		<url-pattern>/file/fileUpService</url-pattern>
 	</servlet-mapping>
 	
 	

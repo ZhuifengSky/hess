@@ -5,7 +5,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
 
-import com.service.impl.FileUpServiceImpl;
+import com.file.service.impl.FileUpServiceImpl;
 
 public class TestImageUp {
 

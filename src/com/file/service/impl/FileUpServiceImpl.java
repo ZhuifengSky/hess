@@ -1,4 +1,4 @@
-package com.service.impl;
+package com.file.service.impl;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -9,7 +9,7 @@ import java.util.Date;
 
 import org.slf4j.Logger;
 
-import com.service.IFileUpService;
+import com.file.service.IFileUpService;
 import com.util.DateUtil;
 import com.util.EnvironmentUtil;
 import com.util.RandomStrUtil;
@@ -17,7 +17,7 @@ import com.util.RandomStrUtil;
 public class FileUpServiceImpl implements IFileUpService {
 
 	public static Logger logger;
-	public static String path =EnvironmentUtil.getInstance().getPropertyValue("File.SavePath");;
+	public static String path =EnvironmentUtil.getInstance().getPropertyValue("File.SaveDsk")+File.separatorChar + File.separatorChar+EnvironmentUtil.getInstance().getPropertyValue("File.SaveFileFolder");
 
 	@Override
 	public String uploadFile(String filName, String suffix,InputStream stream) {
@@ -47,11 +47,11 @@ public class FileUpServiceImpl implements IFileUpService {
 				fs.flush();
 			}
 		} catch (FileNotFoundException e) {
-			/*logger.error("上传文件时文件未找到！");*/
+			logger.error("上传文件时文件未找到！");
 			e.printStackTrace();
 			return "file up error";
 		} catch (IOException e) {
-			/*logger.error("文件上传抛出IO异常！");*/
+			logger.error("文件上传抛出IO异常！");
 			e.printStackTrace();
 			return "file up error";
 		} finally {
@@ -59,7 +59,7 @@ public class FileUpServiceImpl implements IFileUpService {
 				fs.close();
 				stream.close();
 			} catch (IOException e) {
-				/*logger.error("关闭相关流时抛出IO异常！");*/
+				logger.error("关闭相关流时抛出IO异常！");
 				e.printStackTrace();
 			}
 		}

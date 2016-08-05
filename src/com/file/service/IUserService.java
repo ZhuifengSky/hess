@@ -1,8 +1,8 @@
-package com.service;
+package com.file.service;
 
 import java.util.List;
 
-import com.model.User;
+import com.file.model.User;
 
 public interface IUserService {
 
